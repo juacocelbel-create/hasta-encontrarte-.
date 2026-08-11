@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Hasta Encontrarte ❤️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="menu">
+  <h1>❤️ Hasta Encontrarte ❤️</h1>
+  <p>Elige tu personaje</p>
+  <div class="characters">
+    <button class="characterButton" onclick="startGame('male')"><span>👨</span>Hombre</button>
+    <button class="characterButton" onclick="startGame('female')"><span>👩</span>Mujer</button>
+  </div>
+</div>
+
+<div id="game">
+  <div id="hud"><span id="levelText">Nivel 1 / 10</span><span>❤️ ½</span></div>
+  <div id="world"><div id="player">👨</div></div>
+  <div class="controls">
+    <button id="left" class="control">◀</button>
+    <button id="jump" class="control jump">▲</button>
+    <button id="right" class="control">▶</button>
+  </div>
+</div>
+
+<div id="messageBox" class="overlay">
+  <div class="box"><h2>📦 Un mensaje para ti...</h2><p id="message"></p><button onclick="closeMessage()">Continuar ❤️</button></div>
+</div>
+
+<div id="finalBox" class="overlay">
+  <div class="box" id="finalContent"></div>
+</div>
+
+<script src="game.js"></script>
+<button id="fullscreenBtn" type="button">⛶ Pantalla completa</button>
+<script>
+(()=>{const b=document.getElementById("fullscreenBtn");
+async function f(){try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen()}catch(e){}}
+b.onclick=f;document.addEventListener("fullscreenchange",()=>b.textContent=document.fullscreenElement?"✕ Salir":"⛶ Pantalla completa")})();
+</script></body>
+</html>

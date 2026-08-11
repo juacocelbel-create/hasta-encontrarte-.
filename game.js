@@ -65,5 +65,10 @@ function update(){
  world.style.transform=`translateX(${-Math.max(0,x-innerWidth/2)}px)`;
 }
 function loop(){update();requestAnimationFrame(loop)}
-/* MODO MOVIL FACIL */
-document.addEventListener("touchstart",e=>{if(e.target.closest("canvas,button,#game,#controls,.controls"))e.preventDefault()},{passive:false});
+/* MODO MOVIL: controles táctiles sin bloquear los botones del menú */
+(function () {
+  const controls = document.querySelectorAll(".control");
+  controls.forEach(btn => {
+    btn.addEventListener("contextmenu", e => e.preventDefault());
+  });
+})();
